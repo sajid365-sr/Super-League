@@ -7,10 +7,10 @@ for(let keys of allBtn){
         let text = event.target.parentNode.children[0].innerText;
             selection.innerHTML += `
 
-            <li class="px-4">${text}</li>
+            <li class="px-4 py-1">${text}</li>
             
             `;
-
+selection.classList.add('border','border-1');
             
        keys.setAttribute('disabled',true)
        keys.className = 'btn btn-secondary px-5 py-1 rounded-0 mt-3'

@@ -11,3 +11,10 @@ body{
     font-size: 60px;
     font-family: 'Berkshire Swash', cursive;
 }
+
+input[type = 'number']{
+    outline: none;
+}
+input[type = 'number']::-webkit-inner-spin-button{
+    appearance: none;
+}
