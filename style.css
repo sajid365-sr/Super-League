@@ -1,0 +1,13 @@
+/* G-Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+#headingText{
+    color: rgb(0, 179, 255);
+    font-size: 60px;
+    font-family: 'Berkshire Swash', cursive;
+}
