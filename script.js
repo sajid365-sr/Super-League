@@ -19,6 +19,8 @@ for(let keys of allBtn){
 }
 
 
+//Player Budget Section
+
 function inputValue(inputId){
 
     let input = document.getElementById(inputId);
@@ -41,3 +43,5 @@ document.getElementById('calculateBtn').addEventListener('click',function(){
 
     innerTextValue('playerExpense',totalPlayerCost);
 })
+
+//Manager & Coach Budget Section
