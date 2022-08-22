@@ -35,13 +35,24 @@ function innerTextValue(elementId,setValue){
 
 }
 
+let totalPlayerCost;
 document.getElementById('calculateBtn').addEventListener('click',function(){
   let perPlayerCost =  inputValue('budgetInput');
     let selectedPlayer = selection.childElementCount;
 
-    const totalPlayerCost = selectedPlayer * perPlayerCost;
+    totalPlayerCost = selectedPlayer * perPlayerCost;
 
     innerTextValue('playerExpense',totalPlayerCost);
 })
 
 //Manager & Coach Budget Section
+
+document.getElementById('calculateTotalBtn').addEventListener('click',function(){
+    let managerCost = inputValue('managerInput');
+    let coachCost = inputValue('coachInput');
+
+    extraCost = managerCost + coachCost;
+
+    let totalCost = totalPlayerCost + extraCost;
+    innerTextValue('totalExpense',totalCost);
+})
