@@ -1,4 +1,4 @@
-let allBtn = document.querySelectorAll('button');
+let allBtn = document.querySelectorAll('#playerSection button');
 let selection = document.querySelector('#selection ol')
 
 
@@ -17,3 +17,27 @@ for(let keys of allBtn){
         
     })
 }
+
+
+function inputValue(inputId){
+
+    let input = document.getElementById(inputId);
+    let inputValue = Number(input.value);
+    return inputValue;
+}
+
+function innerTextValue(elementId,setValue){
+
+    let element = document.getElementById(elementId);
+    element.innerText = setValue;
+
+}
+
+document.getElementById('calculateBtn').addEventListener('click',function(){
+  let perPlayerCost =  inputValue('budgetInput');
+    let selectedPlayer = selection.childElementCount;
+
+    const totalPlayerCost = selectedPlayer * perPlayerCost;
+
+    innerTextValue('playerExpense',totalPlayerCost);
+})
