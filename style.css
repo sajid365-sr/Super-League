@@ -32,6 +32,7 @@ article:hover{
     font-family: 'Berkshire Swash', cursive;
     color: rgb(0, 179, 255);
     font-size: 30px;
+    text-underline-offset: 10px;
 }
 input[type = 'number']{
     outline: none;
