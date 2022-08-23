@@ -5,16 +5,26 @@ let selection = document.querySelector('#selection ol')
 for(let keys of allBtn){
     keys.addEventListener('click',function(event){
         let text = event.target.parentNode.children[0].innerText;
+
+        if(selection.childElementCount >= 5){
+            selection.innerHTML += '';
+            alert('You can\'t add more than 5 player.');
+            keys.removeAttribute('disabled');
+            selection.classList.add('border','border-danger','border-2','rounded');
+        }else{
             selection.innerHTML += `
 
             <li class="px-4 py-1 text-secondary fw-bold">${text}</li>
             
             `;
-selection.classList.add('border','border-1','rounded');
+            keys.setAttribute('disabled',true);
+            keys.className = 'btn btn-secondary px-5 py-1 rounded-0 mt-3'
+            selection.classList.add('border','border-1','rounded');
+        }
             
-       keys.setAttribute('disabled',true)
-       keys.className = 'btn btn-secondary px-5 py-1 rounded-0 mt-3'
-        
+       
+       
+       
     })
 }
 
