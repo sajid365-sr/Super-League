@@ -8,13 +8,29 @@ body{
 
 #headingText{
     color: rgb(0, 179, 255);
-    font-size: 60px;
+    font-size: 80px;
     font-family: 'Berkshire Swash', cursive;
 }
-
+article:hover{
+    transition: all 0.8s linear;
+    transform: translate(10px,5px);
+    box-shadow: -3px -3px 10px rgb(187, 187, 187);
+}
+#selection h4,#budgetRow h4{
+    font-family: 'Berkshire Swash', cursive;
+    color: rgb(0, 179, 255);
+    font-size: 30px;
+}
 input[type = 'number']{
     outline: none;
 }
 input[type = 'number']::-webkit-inner-spin-button{
     appearance: none;
+}
+#budgetRow button{
+    background-color: rgb(0, 179, 255);
+}
+
+footer p{
+    cursor: pointer;
 }

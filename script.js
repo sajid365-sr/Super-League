@@ -7,10 +7,10 @@ for(let keys of allBtn){
         let text = event.target.parentNode.children[0].innerText;
             selection.innerHTML += `
 
-            <li class="px-4 py-1">${text}</li>
+            <li class="px-4 py-1 text-secondary fw-bold">${text}</li>
             
             `;
-selection.classList.add('border','border-1');
+selection.classList.add('border','border-1','rounded');
             
        keys.setAttribute('disabled',true)
        keys.className = 'btn btn-secondary px-5 py-1 rounded-0 mt-3'
@@ -32,17 +32,30 @@ function innerTextValue(elementId,setValue){
 
     let element = document.getElementById(elementId);
     element.innerText = setValue;
-
+    
 }
 
 let totalPlayerCost;
 document.getElementById('calculateBtn').addEventListener('click',function(){
   let perPlayerCost =  inputValue('budgetInput');
-    let selectedPlayer = selection.childElementCount;
+    let selectedPlayer = Number(selection.childElementCount);
 
-    totalPlayerCost = selectedPlayer * perPlayerCost;
+    if(perPlayerCost === 0 && selectedPlayer === 0){
+        alert('Please select some player first and input their cost.')
+        innerTextValue('playerExpense','000');
+    }else if(selectedPlayer === 0){
+        alert('Please select some player first')
+        innerTextValue('playerExpense','000');
+    }else if(perPlayerCost === 0 ){
+        alert('Please input per player cost.')
+        innerTextValue('playerExpense','000');
+    }
+    else{
+        totalPlayerCost = selectedPlayer * perPlayerCost;
+    
+        innerTextValue('playerExpense',totalPlayerCost);
 
-    innerTextValue('playerExpense',totalPlayerCost);
+    }
 })
 
 //Manager & Coach Budget Section
@@ -51,8 +64,14 @@ document.getElementById('calculateTotalBtn').addEventListener('click',function()
     let managerCost = inputValue('managerInput');
     let coachCost = inputValue('coachInput');
 
-    extraCost = managerCost + coachCost;
 
-    let totalCost = totalPlayerCost + extraCost;
-    innerTextValue('totalExpense',totalCost);
+    if(managerCost === 0 && coachCost === 0){
+        innerTextValue('totalExpense','000');
+    }else{
+        extraCost = managerCost + coachCost;
+    
+        let totalCost = totalPlayerCost + extraCost;
+        innerTextValue('totalExpense',totalCost);
+
+    }
 })
