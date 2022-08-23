@@ -8,8 +8,20 @@ body{
 
 #headingText{
     color: rgb(0, 179, 255);
-    font-size: 80px;
+    font-size: 75px;
     font-family: 'Berkshire Swash', cursive;
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.rotate{
+    animation: rotate 3s linear  infinite running;
 }
 article:hover{
     transition: all 0.8s linear;
