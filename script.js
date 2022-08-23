@@ -65,6 +65,7 @@ document.getElementById('calculateTotalBtn').addEventListener('click',function()
     let coachCost = inputValue('coachInput');
 let playerExpenceValue = Number(document.getElementById('playerExpense').innerText);
 
+
     if(managerCost === 0 && coachCost === 0 && playerExpenceValue === 0){
         alert('Please complete player section first then input manager and coach cost.')
         innerTextValue('totalExpense','000');
@@ -72,11 +73,27 @@ let playerExpenceValue = Number(document.getElementById('playerExpense').innerTe
         alert('Please input manager and coach cost first.')
         innerTextValue('totalExpense','000');
     }else if(managerCost === 0){
-        alert('Please input manager cost first.')
-        innerTextValue('totalExpense','000');
+        if(playerExpenceValue === 0){
+alert('Please complete player section first then input manager cost.');
+innerTextValue('totalExpense',coachCost)
+        }else{
+            alert('Please input manager cost first.')
+            innerTextValue('totalExpense',(totalPlayerCost + coachCost));
+
+        }
     }else if(coachCost === 0){
-        alert('Please input coach cost first.')
-        innerTextValue('totalExpense','000');
+
+        if(playerExpenceValue === 0){
+            alert('Please complete player section first then input coach cost.');
+            innerTextValue('totalExpense',managerCost)
+                    }else{
+                        alert('Please input coach cost first.')
+                        innerTextValue('totalExpense',(totalPlayerCost + managerCost));
+                    }
+
+    }else if(playerExpenceValue === 0){
+        alert('Please complete player section first.');
+        innerTextValue('totalExpense',managerCost + coachCost)
     }
     else{
         extraCost = managerCost + coachCost;
